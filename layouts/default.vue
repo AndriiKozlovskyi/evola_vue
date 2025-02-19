@@ -1,9 +1,10 @@
 <template>
     <div class="flex flex-col min-h-screen">
         <!-- Header -->
-        <header class="fixed top-0 right-0 left-0 w-full flex items-center bg-white shadow-md z-50 p-2 sm:p-4">
+        <header class="fixed top-0 right-0 left-0 w-full flex justify-between items-center bg-white shadow-md z-50 p-2 sm:p-4">
             <!-- Mobile Menu Button -->
-            <button @click="isSidebarOpen = true" class="sm:hidden p-2">
+             <div class="flex flex-row">
+                <button @click="isSidebarOpen = true" class="sm:hidden p-2">
                 <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
@@ -21,6 +22,7 @@
                 <NuxtLink to="/batteries" class="hover:text-black">Батареи</NuxtLink>
                 <a class="hover:text-black">Блог</a>
             </nav>
+             </div>
 
             <!-- Contact Info -->
             <div class="flex flex-row items-center justify-end p-2 sm:p-4 space-x-2 text-gray-700">
@@ -52,25 +54,55 @@
             <slot />
         </main>
 
-        <footer class="fixed bottom-0 right-0 left-0 w-full flex items-center bg-white shadow-md z-50 p-2 sm:p-4">
+        <footer 
+            class="fixed bottom-0 right-0 left-0 w-full flex justify-between items-center bg-white shadow-md z-50 p-2 sm:p-4 transition-transform duration-300"
+            :class="{ 'translate-y-full': !isVisible }"
+        >
+            <!-- Logo -->
             <div class="flex flex-row items-center justify-start p-2 sm:p-4">
                 <NuxtLink to="/" class="font-bold text-xl sm:text-2xl text-black flex flex-row">
                     <p class="text-red-600">E</p><p>VOLA</p>
                 </NuxtLink>
             </div>
 
-
             <!-- Contact Info -->
             <div class="flex flex-row items-center justify-end p-2 sm:p-4 space-x-2 text-gray-700">
-                <img src="../assets/telegram.png" class="w-5 h-5 sm:w-6 sm:h-6"/>
-                <p class="text-xs sm:text-base">Norweska 27</p>
+                <img src="../assets/location.png" class="w-5 h-5 sm:w-6 sm:h-6"/>
+                <p class="text-xs sm:text-base">Wroclaw, Norweska 27</p>
             </div>
         </footer>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from "vue";
 
 const isSidebarOpen = ref(false);
+
+const isVisible = ref(true);
+let lastScrollY = 0;
+
+const handleScroll = () => {
+  const currentScrollY = window.scrollY;
+  isVisible.value = currentScrollY < lastScrollY || currentScrollY < 50; // Show on scroll up or top
+  lastScrollY = currentScrollY;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
+
+<style scoped>
+/* Smooth transition for footer */
+footer {
+  transform: translateY(0);
+}
+.translate-y-full {
+  transform: translateY(100%);
+}
+</style>

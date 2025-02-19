@@ -15,7 +15,7 @@
     </div> -->
 
     <!-- Bicycles Grid -->
-    <div class="flex flex-wrap justify-center sm:justify-start md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full" v-if="filteredBicycles.length">
+    <div class="flex flex-wrap justify-center sm:justify-start md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full mb-20" v-if="filteredBicycles.length">
       <CardBg 
         v-for="bicycle in filteredBicycles"
         :key="bicycle.id" 
