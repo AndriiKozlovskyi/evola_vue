@@ -9,7 +9,7 @@
             <p class="text-white text-xl text-center font-semibold">
                 {{ desc }}
             </p>
-            <div class="flex flex-row w-full pl-24 pr-24 items-center justify-center mb-10">
+            <div class="flex flex-row w-full sm:pl-24 sm:pr-24 items-center justify-center mb-10">
                 <NuxtLink to="/bicycles"><MyButton @onClick="" label="Арендовать"></MyButton></NuxtLink>
             </div>
         </div>
