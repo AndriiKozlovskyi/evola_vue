@@ -24,10 +24,12 @@
                     <a class="hover:text-black">Блог</a>
                 </nav>
                 <!-- Contact Info -->
-                <div class="flex flex-row items-center justify-end p-2 sm:p-4 space-x-2 text-gray-700">
-                    <img src="../assets/telegram.png" class="w-5 h-5 sm:w-6 sm:h-6"/>
-                    <p class="text-xs sm:text-base">@evola_manager</p>
-                </div>
+                 <a href="https://t.me/evola_manager">
+                    <div class="flex flex-row items-center justify-end p-2 sm:p-4 space-x-2 text-gray-700 hover:scale-[1.02] cursor-pointer">
+                        <img src="../assets/telegram.png" class="w-5 h-5 sm:w-6 sm:h-6"/>
+                        <p class="text-xs sm:text-base">@evola_manager</p>
+                    </div>
+                 </a>
         </header>
 
         <!-- Sidebar Menu (Mobile) -->
