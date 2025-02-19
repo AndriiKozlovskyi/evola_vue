@@ -1,54 +1,57 @@
 <template>
-  <div class="p-6">
-    <div class="flex flex-row items-center space-x-4 mb-4">
-      <h1 class="text-2xl font-bold">Доступные велосипеды</h1>
-      <Switcher class=""/>
+  <div class="p-4 sm:p-6">
+    <!-- Header & Switcher -->
+    <div class="flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0 sm:space-x-4 mb-4">
+      <h1 class="text-xl sm:text-2xl font-bold text-center sm:text-left">Доступные велосипеды</h1>
+      <Switcher v-model="isSelected" />
     </div>
-    <div class="flex flex-row space-x-4 border rounded-lg shadow-inner p-10 h-full" v-if="bicycles.length">
-        <CardBg 
-        v-for="bicycle in bicycles" :key="bicycle.id" class="border p-4 mb-2 rounded-lg"
+
+    <!-- Information -->
+    <div class="text-sm sm:text-base">
+      <p>- Первый день аренды бесплатно</p>
+      <p>- Сервис бесплатный (если вы не пробиваете колесо каждый день, не чаще раза в неделю)</p>
+      <p>- Оплата может откладываться, но отношение к вам будет ухудшаться</p>
+      <p>- Пример умовы</p>
+    </div>
+
+    <!-- Bicycles Grid -->
+    <div class="flex flex-wrap justify-center sm:justify-start space-x-2 md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full" v-if="filteredBicycles.length">
+      <CardBg 
+        v-for="bicycle in filteredBicycles"
+        :key="bicycle.id" 
+        class="border p-2 sm:p-4 mb-2 rounded-lg w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
         :image-url="`data:image/jpeg;base64,${bicycle.imageBase64}`" 
         :battery-capacity="bicycle.batteryCapacity"
         :model="bicycle.model"
         :motor="bicycle.motor"
         :wheel-size="bicycle.wheelSize"
         :price="bicycle.price"
-        />
-        <!-- <div class="flex flex-row">
-          <div class="flex flex-col">
-            <div class="flex flex-row justify-between">
-              <p><strong class="text-lg">{{ bicycle.model.toLocaleUpperCase() }}</strong></p>    
-              <p><strong class="text-lg">{{ bicycle.price }} зл/неделю</strong></p>
-            </div>
-            <div v-if="bicycle.imageBase64" class="mt-2">
-              <img :src="`data:image/jpeg;base64,${bicycle.imageBase64}`" alt="Bicycle Image" width="300px" height="200px" class="rounded-md" />
-            </div>
-          </div>
-          <div class="flex flex-col ml-10 justify-center">
-            <p>{{ bicycle.batteryCapacity }} А</p>
-            <p>{{ bicycle.motor }}</p>
-            <p>{{ bicycle.wheelSize }}" колёса</p>
-          </div>
-        </div> -->
-      </div>
-    <p v-else>No bicycles found.</p>
+        :on-sell="bicycle.onSell"
+      />
+    </div>
+
+    <p class="text-center text-gray-500 mt-4" v-else>No bicycles found.</p>
   </div>
-  <!-- <NuxtLink to="/add"><MyButton class="ml-8" label="Add Vehicle"></MyButton></NuxtLink> -->
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import BicycleService from '@/composables/bicycleService';
 import Bicycle from "@/composables/Bicycle";
 
-const bicycles: Ref<Array<Bicycle>> = ref([]);
+const bicycles = ref<Bicycle[]>([]);
+const isSelected = ref(false); // Default: Rent (false)
 
 onMounted(async () => {
   try {
     bicycles.value = await BicycleService.getAllBicycles();
-    console.log(bicycles.value[0].imageBase64);
   } catch (error) {
     console.error("Failed to load bicycles", error);
   }
+});
+
+// Computed property to filter bicycles
+const filteredBicycles = computed(() => {
+  return bicycles.value.filter(bicycle => bicycle.onSell === isSelected.value);
 });
 </script>

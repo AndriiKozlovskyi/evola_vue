@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col items-center rounded-2xl bg-white w-[65rem] h-3/4 z-10 opacity-100">
-        <p class="text-[#158B7D] text-[36px] mt-10">Subscribe, rent a bike, and own a e-bike after 6 month!</p>
+        <p class="text-gradient-to-r from-green-500 text-gray-800 to-indigo-400 hover:from-indigo-400 hover:to-green-500 transition-colors duration-300 text-[36px] mt-10">Subscribe, rent a bike, and own a e-bike after 6 month!</p>
         <div 
             class="w-[30rem] h-[24rem] flex bg-cover bg-center"
             :style="{ backgroundImage: `url(${backgroundUrl})` }"

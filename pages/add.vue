@@ -8,6 +8,7 @@ const newBicycle = ref({
   wheelSize: null,
   price: null,
   motor: '',
+  onSell: false,
   description: '',
   image: null,
 });
@@ -21,6 +22,7 @@ const addBicycle = async () => {
       wheelSize: newBicycle.value.wheelSize,
       price: newBicycle.value.price,
       motor: newBicycle.value.motor,
+      onSell: newBicycle.value.onSell,
       description: newBicycle.value.description
     })], { type: "application/json" }));
 
@@ -51,6 +53,7 @@ const handleFileChange = (event: Event) => {
       <input v-model="newBicycle.model" placeholder="Model" class="border p-2 w-full rounded-xl" />
       <input v-model="newBicycle.batteryCapacity" type="number" placeholder="Battery Capacity" class="border p-2 w-full rounded-xl" />
       <input v-model="newBicycle.wheelSize" type="number" placeholder="Wheel Size" class="border p-2 w-full rounded-xl" />
+      <input v-model="newBicycle.onSell" placeholder="On Sell" class="border p-2 w-full rounded-xl" />
       <input v-model="newBicycle.price" type="number" placeholder="Price" class="border p-2 w-full rounded-xl" />
       <input v-model="newBicycle.motor" placeholder="Motor Type" class="border p-2 w-full rounded-xl" />
       <textarea v-model="newBicycle.description" placeholder="Description" class="border p-2 w-full rounded-xl"></textarea>

@@ -1,6 +1,6 @@
 <template>
     <div class="relative w-[25rem] h-[25rem] flex flex-col bg-cover bg-center rounded-xl hover:scale-[1.01]" 
-        :style="{ backgroundImage: `url(${imageUrl})` }"
+        :style="{ backgroundImage: `url(${pollydp9})` }"
         @mouseenter="handleMouseEnter" 
         @mouseleave="handleMouseLeave"
     >
@@ -13,21 +13,15 @@
         <!-- Content inside (if needed) -->
         <div class="text-gray-200 p-4 text-xl z-10 space-y-3" v-if="!hovered">
             <div class="flex flex-row justify-between items-start">
-                <p class="text-xl mb-10"><strong>{{ model?.toLocaleUpperCase() }}</strong></p>
-                <p class="text-xl"><strong>{{ price }} <p v-if="onSell">зл/неделю</p></strong></p>
+                <p class="text-xl mb-10"><strong>{{ batteryCapacity }}A</strong></p>
+                <p class="text-xl"><strong>{{ price }} зл/неделю</strong></p>
             </div>
             <hr/>
-            <div class="flex flex-row space-x-3 items-center">
-                <img src="../assets/battery-icon.png" class="w-[3rem] h-[3rem]"/>
-                <p><strong>{{ batteryCapacity }}A</strong></p>
-            </div>
-            <div class="flex flex-row space-x-3 items-center">
-                <img src="../assets/motor.png" class="w-[3rem] h-[3rem]"/>
-                <p><strong>{{ motor }}</strong></p>
-            </div>
-            <div class="flex flex-row space-x-3 items-center">
-                <img src="../assets/wheel.png" class="w-[3rem] h-[3rem]"/>
-                <p><strong>{{ wheelSize }}"</strong></p>
+            <div>
+                <p class="text-xl">{{ box }} корпус</p>
+                <p class="text-xl">DC charger</p>
+                <p class="text-xl">Charger included(4A)</p>
+                <p class="text-xl">48v</p>
             </div>
         </div>
         <div v-show="hovered" class="cursor-pointer z-10 flex flex-col text-white items-start bottom-0 justify-center">
@@ -43,21 +37,12 @@
 import { ref } from 'vue';
 
 const props = defineProps({
-    imageUrl: {
-        type: String,
-        required: true
-    },
-    model: String,
-    motor: String,
     batteryCapacity: Number,
-    wheelSize: Number,
-    onSell: Boolean,
     price: Number,
+    box: String,
 })
 
-onMounted(() => {
-    console.log(props.onSell)
-})
+import pollydp9 from '../assets/pollydp9.jpg';
 
 const hovered = ref(false);
 

@@ -3,6 +3,7 @@ export default class Bicycle {
     model!: string;
     batteryCapacity!: number;
     price!: number;
+    onSell: boolean;
     motor: string;
     imageBase64?: string;  // base64 image string
     wheelSize: number;
@@ -13,6 +14,7 @@ export default class Bicycle {
       this.batteryCapacity = data.batteryCapacity;
       this.wheelSize = data.wheelSize;
       this.price = data.price;
+      this.onSell = data.onSell;
       this.motor = data.motor;
       this.imageBase64 = data.imageBase64;
     }
