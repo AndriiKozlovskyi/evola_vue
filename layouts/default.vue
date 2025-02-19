@@ -65,10 +65,12 @@
             </div>
 
             <!-- Contact Info -->
-            <div class="flex flex-row items-center justify-end p-2 sm:p-4 space-x-2 text-gray-700">
-                <img src="../assets/location.png" class="w-5 h-5 sm:w-6 sm:h-6"/>
-                <p class="text-xs sm:text-base">Wroclaw, Norweska 27</p>
-            </div>
+            <a href="https://maps.app.goo.gl/EBk2MTtXK6mwjzLC8">
+                <div class="flex flex-row items-center justify-end p-2 sm:p-4 space-x-2 text-gray-700 hover:scale-[1.02] cursor-pointer">
+                    <img src="../assets/location.png" class="w-5 h-5 sm:w-6 sm:h-6"/>
+                    <p class="text-xs sm:text-base">Wroclaw, Norweska 27</p>
+                </div>
+            </a>
         </footer>
     </div>
 </template>
