@@ -30,6 +30,8 @@
     { image: bicycle, label: "Конверсия велосипедов", desc: "Соберём велосипед за ваш бюджет, любой мощности" },
   ]);
   
+  let touchStartX = 0;
+let touchEndX = 0;
   const currentIndex = ref(0);
   
   const nextSlide = () => {
@@ -48,6 +50,31 @@
     } 
     currentIndex.value--;
   };
+
+  const handleTouchStart = (event: TouchEvent) => {
+  touchStartX = event.touches[0].clientX;
+};
+
+const handleTouchMove = (event: TouchEvent) => {
+  touchEndX = event.touches[0].clientX;
+};
+
+const handleTouchEnd = () => {
+  if (touchStartX - touchEndX > 50) nextSlide();
+  if (touchEndX - touchStartX > 50) prevSlide();
+};
+
+onMounted(() => {
+  window.addEventListener("touchstart", handleTouchStart);
+  window.addEventListener("touchmove", handleTouchMove);
+  window.addEventListener("touchend", handleTouchEnd);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("touchstart", handleTouchStart);
+  window.removeEventListener("touchmove", handleTouchMove);
+  window.removeEventListener("touchend", handleTouchEnd);
+});
   </script>
   
   <style scoped>
