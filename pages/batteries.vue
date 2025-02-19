@@ -1,13 +1,13 @@
 <template>
     <div class="p-4 sm:p-6">
       <!-- Header with Switcher -->
-      <div class="flex flex-row items-center justify-between mb-4">
+      <div class="flex flex-col sm:flex-row items-center sm:justify-between space-y-2 sm:space-y-0 mb-4">
         <h1 class="text-xl sm:text-2xl font-bold">Доступные батареи</h1>
         <Switcher />
       </div>
   
       <!-- Battery Cards Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 border rounded-lg shadow-inner p-4 sm:p-6">
+      <div class="flex flex-wrap justify-center sm:justify-start md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full">
         <BatteryCard 
           class="border p-4 rounded-lg"
           :battery-capacity="22"

@@ -14,7 +14,7 @@
         <div class="text-gray-200 p-4 text-xl z-10 space-y-3" v-if="!hovered">
             <div class="flex flex-row justify-between items-start">
                 <p class="text-xl mb-10"><strong>{{ model?.toLocaleUpperCase() }}</strong></p>
-                <p class="text-xl"><strong>{{ price }} <p v-if="onSell">зл/неделю</p></strong></p>
+                <p class="text-xl"><strong>{{ price }} <p v-if="!onSell">зл/неделю</p></strong></p>
             </div>
             <hr/>
             <div class="flex flex-row space-x-3 items-center">

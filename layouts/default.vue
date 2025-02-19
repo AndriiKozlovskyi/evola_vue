@@ -51,6 +51,21 @@
         <main class="flex-grow pt-20 sm:pt-24">
             <slot />
         </main>
+
+        <footer class="fixed bottom-0 right-0 left-0 w-full flex items-center bg-white shadow-md z-50 p-2 sm:p-4">
+            <div class="flex flex-row items-center justify-start p-2 sm:p-4">
+                <NuxtLink to="/" class="font-bold text-xl sm:text-2xl text-black flex flex-row">
+                    <p class="text-red-600">E</p><p>VOLA</p>
+                </NuxtLink>
+            </div>
+
+
+            <!-- Contact Info -->
+            <div class="flex flex-row items-center justify-end p-2 sm:p-4 space-x-2 text-gray-700">
+                <img src="../assets/telegram.png" class="w-5 h-5 sm:w-6 sm:h-6"/>
+                <p class="text-xs sm:text-base">Norweska 27</p>
+            </div>
+        </footer>
     </div>
 </template>
 

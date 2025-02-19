@@ -19,9 +19,7 @@
             <hr/>
             <div>
                 <p class="text-xl">{{ box }} корпус</p>
-                <p class="text-xl">DC charger</p>
-                <p class="text-xl">Charger included(4A)</p>
-                <p class="text-xl">48v</p>
+                <p class="text-xl">Зарядка в комплекте(4A)</p>
             </div>
         </div>
         <div v-show="hovered" class="cursor-pointer z-10 flex flex-col text-white items-start bottom-0 justify-center">

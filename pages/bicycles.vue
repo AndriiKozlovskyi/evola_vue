@@ -7,15 +7,15 @@
     </div>
 
     <!-- Information -->
-    <div class="text-sm sm:text-base">
+    <!-- <div class="text-sm sm:text-base">
       <p>- Первый день аренды бесплатно</p>
       <p>- Сервис бесплатный (если вы не пробиваете колесо каждый день, не чаще раза в неделю)</p>
       <p>- Оплата может откладываться, но отношение к вам будет ухудшаться</p>
       <p>- Пример умовы</p>
-    </div>
+    </div> -->
 
     <!-- Bicycles Grid -->
-    <div class="flex flex-wrap justify-center sm:justify-start space-x-2 md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full" v-if="filteredBicycles.length">
+    <div class="flex flex-wrap justify-center sm:justify-start md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full" v-if="filteredBicycles.length">
       <CardBg 
         v-for="bicycle in filteredBicycles"
         :key="bicycle.id" 
