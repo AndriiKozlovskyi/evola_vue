@@ -5,23 +5,24 @@
             <!-- Mobile Menu Button -->
              <div class="flex flex-row">
                 <button @click="isSidebarOpen = true" class="sm:hidden p-2">
-                <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
+                    <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
 
-            <div class="flex flex-row items-center justify-start p-2 sm:p-4">
-                <NuxtLink to="/" class="font-bold text-xl sm:text-2xl text-black flex flex-row">
-                    <p class="text-red-600">E</p><p>VOLA</p>
-                </NuxtLink>
-            </div>
+                <div class="flex flex-row items-center justify-start p-2 sm:p-4">
+                    <NuxtLink to="/" class="font-bold text-xl sm:text-2xl text-black flex flex-row">
+                        <p class="text-red-600">E</p><p>VOLA</p>
+                    </NuxtLink>
+                </div>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden sm:flex w-full justify-center items-center space-x-4 sm:space-x-10 py-2 sm:py-4 text-sm sm:text-lg text-gray-600">
-                <NuxtLink to="/bicycles" class="hover:text-black">Велосипеды</NuxtLink>
-                <NuxtLink to="/batteries" class="hover:text-black">Батареи</NuxtLink>
-                <a class="hover:text-black">Блог</a>
-            </nav>
+                <!-- Desktop Navigation -->
+                <nav class="hidden sm:flex relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 justify-center items-center space-x-4 py-2 sm:py-4 text-sm sm:text-lg text-gray-600">
+                    <NuxtLink to="/bicycles" class="hover:text-black">Велосипеды</NuxtLink>
+                    <NuxtLink to="/batteries" class="hover:text-black">Батареи</NuxtLink>
+                    <a class="hover:text-black">Блог</a>
+                </nav>
+
              </div>
 
             <!-- Contact Info -->
