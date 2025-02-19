@@ -15,16 +15,15 @@
                         <p class="text-red-600">E</p><p>VOLA</p>
                     </NuxtLink>
                 </div>
+             </div>
 
+             
                 <!-- Desktop Navigation -->
                 <nav class="hidden sm:flex relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 justify-center items-center space-x-4 py-2 sm:py-4 text-sm sm:text-lg text-gray-600">
                     <NuxtLink to="/bicycles" class="hover:text-black">Велосипеды</NuxtLink>
                     <NuxtLink to="/batteries" class="hover:text-black">Батареи</NuxtLink>
                     <a class="hover:text-black">Блог</a>
                 </nav>
-
-             </div>
-
             <!-- Contact Info -->
             <div class="flex flex-row items-center justify-end p-2 sm:p-4 space-x-2 text-gray-700">
                 <img src="../assets/telegram.png" class="w-5 h-5 sm:w-6 sm:h-6"/>
