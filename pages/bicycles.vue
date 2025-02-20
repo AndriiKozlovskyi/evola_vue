@@ -81,9 +81,62 @@ onMounted(async () => {
   }
 });
 
+const mockBicycles: Bicycle[] = [
+  new Bicycle({
+    id: 1,
+    model: "E-MTB Pro",
+    batteryCapacity: 15,
+    price: 1200,
+    onSell: true,
+    motor: "Bafang",
+    wheelSize: 27.5,
+    imageBase64: "", // Add a base64-encoded image if needed
+  }),
+  new Bicycle({
+    id: 2,
+    model: "City Cruiser",
+    batteryCapacity: 10,
+    price: 900,
+    onSell: false,
+    motor: "Bosch",
+    wheelSize: 26,
+    imageBase64: "",
+  }),
+  new Bicycle({
+    id: 3,
+    model: "Adventure Pro",
+    batteryCapacity: 20,
+    price: 1500,
+    onSell: true,
+    motor: "Shimano",
+    wheelSize: 29,
+    imageBase64: "",
+  }),
+  new Bicycle({
+    id: 4,
+    model: "Folding E-Bike",
+    batteryCapacity: 13,
+    price: 1100,
+    onSell: false,
+    motor: "Bafang",
+    wheelSize: 26,
+    imageBase64: "",
+  }),
+  new Bicycle({
+    id: 5,
+    model: "Fat Tire Explorer",
+    batteryCapacity: 18,
+    price: 1700,
+    onSell: true,
+    motor: "Bosch",
+    wheelSize: 26,
+    imageBase64: "",
+  }),
+];
+
 // Computed property to filter bicycles
 const filteredBicycles = computed(() => {
-  return bicycles.value.filter(bicycle => bicycle.onSell === isSelected.value);
+  return mockBicycles.filter(bicycle => bicycle.onSell === isSelected.value);
 });
 
 
