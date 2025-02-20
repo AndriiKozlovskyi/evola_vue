@@ -37,7 +37,7 @@
     <div class="p-6">
 
     <!-- Header & Switcher -->
-    <div class="flex flex-col sm:flex-row items-center sm:justify-between space-y-2 sm:space-y-0 mb-4">
+    <div class="flex flex-col sm:flex-row items-center sm:justify-between space-y-5 sm:space-y-0 mb-4">
       <h1 class="text-xl sm:text-2xl font-bold text-center sm:text-left">Доступные велосипеды</h1>
       <Switcher v-model="isSelected" />
     </div>
