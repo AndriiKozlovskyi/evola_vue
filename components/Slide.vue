@@ -10,7 +10,7 @@
                 {{ desc }}
             </p>
             <div class="flex flex-row w-full sm:pl-24 sm:pr-24 items-center justify-center mb-10">
-                <NuxtLink to="/bicycles"><MyButton @onClick="" label="Арендовать"></MyButton></NuxtLink>
+                <NuxtLink :to="link"><MyButton @onClick="" :label="buttonLabel"></MyButton></NuxtLink>
             </div>
         </div>
     </div>
@@ -22,6 +22,8 @@ const props = defineProps({
         required: true
     },
     label: String,
-    desc: String
+    desc: String,
+    buttonLabel: String,
+    link: String
 })
 </script>

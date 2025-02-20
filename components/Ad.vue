@@ -10,6 +10,8 @@
         :image="slide.image" 
         :desc="slide.desc" 
         :label="slide.label"
+        :button-label="slide.buttonLabel"
+        :link="slide.link"
         class="w-full"
       />
     </div>
@@ -24,9 +26,9 @@ import fix from "@/assets/fix1.png";
 import bicycle from "@/assets/bicycle1.png";
 
 const slides = ref([
-  { image: bicycle, label: "Аренда велосипедов", desc: "Арендуй велосипед сейчас, мощный мотор, большой запас хода" },
-  { image: fix, label: "Сервис велосипедов", desc: "Мы обслужим твой велосипед в лучшем виде." },
-  { image: bicycle, label: "Конверсия велосипедов", desc: "Соберём велосипед за ваш бюджет, любой мощности" },
+  { image: bicycle, label: "Аренда велосипедов", desc: "Арендуй велосипед сейчас, мощный мотор, большой запас хода", buttonLabel: "Арендовать", link: "/bicycles" },
+  { image: fix, label: "Сервис велосипедов", desc: "Мы обслужим твой велосипед в лучшем виде.", buttonLabel: "Сервис", link: "/bicycles" },
+  { image: bicycle, label: "Конверсия велосипедов", desc: "Соберём велосипед за ваш бюджет, любой мощности", buttonLabel: "Конверсия", link: "/constructor" },
 ]);
 
 let touchStartX = 0;
