@@ -23,11 +23,11 @@
     </div>
 
     <!-- Bicycles Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 sm:p-6 h-full" v-if="filteredBicycles.length">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:p-6 h-full" v-if="filteredBicycles.length">
       <CardBg 
         v-for="bicycle in filteredBicycles"
         :key="bicycle.id" 
-        class="p-2 sm:p-4 mb-2 rounded-lg w-full"
+        class="sm:p-4 mb-2 rounded-lg w-full"
         :image-url="`data:image/jpeg;base64,${bicycle.imageBase64}`" 
         :battery-capacity="bicycle.batteryCapacity"
         :model="bicycle.model"
