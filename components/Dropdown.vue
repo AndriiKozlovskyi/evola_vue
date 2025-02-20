@@ -1,5 +1,5 @@
 <template>
-    <div class="relative inline-block w-full">
+    <div class="relative inline-block w-[10rem]">
       <label class="block font-semibold mb-1">{{ label }}</label>
       <div class="border border-gray-300 rounded-md px-4 py-2 cursor-pointer bg-white" @click="toggleDropdown">
         {{ selectedOption || "Выберите..." }}

@@ -105,30 +105,44 @@ const totalPrice = computed(() => {
 </script>
 
 <template>
-<div class="flex flex-row">
-  <div class="p-10 w-1/2">
-    <Dropdown label="Марка мотора" :options="motorBrands" v-model="selectedMotorBrand" />
-    <Dropdown label="Мощность мотора" :options="motorPowers" v-model="selectedMotorPower" />
-    <Dropdown label="Тип мотора" :options="motorType" v-model="selectedMotorType" />
-    <Dropdown label="Ёмкость батареи" :options="batteryCapacities" v-model="selectedBatteryCapacity" />
-    <Dropdown label="Размер колёс" :options="wheelSizes" v-model="selectedWheelSize" />
-    <Dropdown label="Тип подвески" :options="suspensionTypes" v-model="selectedSuspensionType" />
-    <Dropdown label="Ширина резины" :options="tireWidths" v-model="selectedTireWidth" />
-    <Dropdown label="Напряжение батареи" :options="batteryVoltages" v-model="selectedBatteryVoltage" />
-    <Dropdown label="Тип экранчика" :options="displayTypes" v-model="selectedDisplayType" />
-    <Dropdown label="Ток контроллера" :options="controllerCurrents" v-model="selectedControllerCurrent" />
-    <Dropdown label="Тип тормозов" :options="brakeTypes" v-model="selectedBrakeType" />
-
-    <div class="mt-4 space-x-4">
-      <label class="block font-semibold">Добавить ли аксессуары?</label>
-      <input type="radio" id="yes" value="yes" v-model="addAccessories" />
-      <label for="yes">Да</label>
-      <input type="radio" id="no" value="no" v-model="addAccessories" />
-      <label for="no">Нет</label>
+    <div class="flex flex-col p-4">
+      <div class="flex flex-col sm:flex-row">
+        <!-- Options Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-3 gap-y-6 w-full sm:w-1/2 p-4 sm:p-10">
+          <Dropdown label="Марка мотора" :options="motorBrands" v-model="selectedMotorBrand" />
+          <Dropdown label="Мощность мотора" :options="motorPowers" v-model="selectedMotorPower" />
+          <Dropdown label="Тип мотора" :options="motorType" v-model="selectedMotorType" />
+          <Dropdown label="Ёмкость батареи" :options="batteryCapacities" v-model="selectedBatteryCapacity" />
+          <Dropdown label="Размер колёс" :options="wheelSizes" v-model="selectedWheelSize" />
+          <Dropdown label="Тип подвески" :options="suspensionTypes" v-model="selectedSuspensionType" />
+          <Dropdown label="Ширина резины" :options="tireWidths" v-model="selectedTireWidth" />
+          <Dropdown label="Напр. батареи" :options="batteryVoltages" v-model="selectedBatteryVoltage" />
+          <Dropdown label="Тип экранчика" :options="displayTypes" v-model="selectedDisplayType" />
+          <Dropdown label="Ток контроллера" :options="controllerCurrents" v-model="selectedControllerCurrent" />
+          <Dropdown label="Тип тормозов" :options="brakeTypes" v-model="selectedBrakeType" />
+  
+          <!-- Accessories Option -->
+          <div class="mt-4 space-x-2">
+            <label class="block font-semibold">Добавить ли аксессуары?</label>
+            <div class="flex items-center space-x-2">
+              <input type="radio" id="yes" value="yes" v-model="addAccessories" />
+              <label for="yes">Да</label>
+              <input type="radio" id="no" value="no" v-model="addAccessories" />
+              <label for="no">Нет</label>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Image -->
+        <div class="flex justify-center items-center w-full sm:w-1/2 p-4">
+          <img class="w-full sm:w-[40rem] rounded-lg" src="../assets/bicycle1.png" />
+        </div>
+      </div>
+  
+      <!-- Total Price -->
+      <div class="flex justify-center text-lg sm:text-xl font-bold rounded-lg px-4 py-2 mt-4">
+        <p>Общая стоимость ${{ totalPrice }}</p>
+      </div>
     </div>
-  </div>
-  <div class="text-xl font-bold flex flex-row items-center justify-center">
-      Итоговая цена: {{ totalPrice }} $
-    </div>
-</div>
-</template>
+  </template>
+  
