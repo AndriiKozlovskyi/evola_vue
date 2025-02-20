@@ -18,7 +18,7 @@
              </div>
 
                 <!-- Desktop Navigation -->
-                <nav class="hidden sm:flex relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 justify-center items-center space-x-4 py-2 sm:py-4 text-sm sm:text-lg text-gray-600">
+                <nav class="hidden sm:flex relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 justify-center items-center space-x-4 sm:py-4 text-sm sm:text-lg text-gray-600">
                     <NuxtLink to="/bicycles" class="hover:text-black">Велосипеды</NuxtLink>
                     <NuxtLink to="/batteries" class="hover:text-black">Батареи</NuxtLink>
                     <a class="hover:text-black">Блог</a>
@@ -50,12 +50,12 @@
             </nav>
         </aside>
         <!-- Main Content -->
-        <main class="flex-grow pt-20 sm:pt-24">
+        <main class="flex-grow pt-10 sm:pt-24">
             <slot />
         </main>
 
         <footer 
-            class="fixed bottom-0 right-0 left-0 w-full flex justify-between items-center bg-white shadow-md z-50 p-2 sm:p-4 transition-transform duration-300"
+            class="bottom-0 right-0 left-0 w-full flex justify-between items-center bg-white shadow-md z-50 p-2 sm:p-4 transition-transform duration-300"
             :class="{ 'translate-y-full': !isVisible }"
         >
             <!-- Logo -->
