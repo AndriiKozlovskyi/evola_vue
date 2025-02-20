@@ -11,7 +11,7 @@
                 </button>
 
                 <div class="flex flex-row items-center justify-start p-2 sm:p-4">
-                    <NuxtLink to="/" class="font-bold text-xl sm:text-2xl text-black flex flex-row">
+                    <NuxtLink to="/" class="font-bold text-xl sm:text-2xl text-black flex flex-row px-2 py-1 border border-black hover:bg-gray-300 rounded-lg">
                         <p class="text-red-600">E</p><p>VOLA</p>
                     </NuxtLink>
                 </div>
@@ -60,7 +60,7 @@
         >
             <!-- Logo -->
             <div class="flex flex-row items-center justify-start p-2 sm:p-4">
-                <NuxtLink to="/" class="font-bold text-xl sm:text-2xl text-black flex flex-row">
+                <NuxtLink to="/" class="font-bold text-xl sm:text-2xl text-black flex flex-row px-2 py-1 border hover:bg-gray-300 border-black rounded-lg">
                     <p class="text-red-600">E</p><p>VOLA</p>
                 </NuxtLink>
             </div>
