@@ -46,10 +46,9 @@
             <nav class="flex flex-col p-4 space-y-4 text-lg text-gray-700">
                 <NuxtLink to="/bicycles" class="hover:text-black" @click="isSidebarOpen = false">Велосипеды</NuxtLink>
                 <NuxtLink to="/batteries" class="hover:text-black" @click="isSidebarOpen = false">Батареи</NuxtLink>
-                <a class="hover:text-black" @click="isSidebarOpen = false">Блог</a>
+                <NuxtLink to="/blog" class="hover:text-black" @click="isSidebarOpen = false">Блог</NuxtLink>
             </nav>
         </aside>
-
         <!-- Main Content -->
         <main class="flex-grow pt-20 sm:pt-24">
             <slot />

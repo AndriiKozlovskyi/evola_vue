@@ -1,5 +1,5 @@
 <template>
-     <div class="w-screen h-[45rem] flex flex-col bg-cover bg-center rounded-xl opacity-90"
+     <div class="w-screen sm:h-[45rem] h-[30rem] flex flex-col bg-cover bg-center rounded-xl opacity-90"
         :style="{ backgroundImage: `url(${image})` }"
     >
         <div class="opacity-90 bg-black inset-0 flex flex-col justify-between z-20 bg-cover w-full h-full">

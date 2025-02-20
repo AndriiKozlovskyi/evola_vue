@@ -13,7 +13,6 @@
         class="w-full"
       />
     </div>
-
     <button @click="prevSlide" class="hidden sm:flex absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full z-10">‹</button>
     <button @click="nextSlide" class="hidden sm:flex absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full z-10">›</button>
   </div>
