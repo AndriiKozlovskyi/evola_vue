@@ -1,10 +1,10 @@
 <template>
-    <div class="p-4 sm:p-6">
+    <div class="p-4 mt-10 sm:p-6">
       <!-- Header with Switcher -->
-      <div class="flex flex-col sm:flex-row items-center sm:justify-between space-y-2 sm:space-y-0 mb-4">
-        <h1 class="text-xl sm:text-2xl font-bold">Доступные батареи</h1>
-        <Switcher />
-      </div>
+      <div class="flex flex-col sm:flex-row sm:justify-between space-y-5 sm:space-y-0 mb-4">
+      <h1 class="text-xl sm:text-2xl font-bold text-left sm:text-left">Доступные батареи</h1>
+      <Switcher v-model="isSelected" />
+    </div>
   
       <!-- Battery Cards Grid -->
       <div class="flex flex-wrap justify-center sm:justify-start md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full">
@@ -31,7 +31,11 @@
   </template>
   
   <script setup lang="ts">
+  import { ref } from 'vue';
+
   import BatteryCard from '~/components/BatteryCard.vue';
   import Switcher from '~/components/Switcher.vue';
+  const isSelected = ref(false); // Default: Rent (false)
+
   </script>
   
