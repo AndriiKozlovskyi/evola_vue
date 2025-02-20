@@ -1,53 +1,33 @@
 <template>
   <div class="relative w-full overflow-x-hidden">
-    <!-- <div class="w-screen sm:h-[20rem] h-[20rem] flex flex-col bg-cover bg-center rounded-xl opacity-90"
-    :style="{ backgroundImage: `url(${image})` }">
-    <div class="opacity-90 bg-black inset-0 flex flex-col items-center justify-center z-30 bg-cover w-full h-full">
-      <div class="text-white flex flex-col items-center self-center w-1/3 justify-center bg-blue-100 text-gr-800 bg-gradient-to-r from-green-500 to-indigo-400 p-4 sm:p-6 rounded-lg mb-4">
-      <h2 class="text-lg sm:text-3xl font-semibold">Наше предложение</h2>
-      <ul class="list-disc pl-5 text-sm mt-5 sm:text-base">
-        <li>Первый день аренды бесплатно</li>
-        <li>Бесплатное сервисное обслуживание</li>
-        <li>Лояльное отношение к клиентам</li>
-        <li>Первый день аренды бесплатно</li>
-        <li>Бесплатное сервисное обслуживание</li>
-        <li>Лояльное отношение к клиентам</li>
-      </ul>
-  </div>
-</div> -->
-
-<div
-      class="flex transition-transform duration-500 ease-in-out"
-      :style="{ transform: `translateX(-${currentIndex * 100/slides.length}%)`, width: `${slides.length * 100}%` }"
-    >
-      <Slide 
-        v-for="(slide, index) in slides" 
-        :key="index" 
-        :image="slide.image" 
-        :desc="slide.desc" 
-        :label="slide.label"
-        :button-present="false"
-        :link="slide.link"
-        class="w-full"
-      />
+    <div
+        class="flex transition-transform duration-500 ease-in-out"
+        :style="{ transform: `translateX(-${currentIndex * 100/slides.length}%)`, width: `${slides.length * 100}%` }"
+      >
+        <Slide 
+          v-for="(slide, index) in slides" 
+          :key="index" 
+          :image="slide.image" 
+          :desc="slide.desc" 
+          :label="slide.label"
+          :button-present="false"
+          :link="slide.link"
+          class="w-full"
+        />
+      </div>
     </div>
-    </div>
-    <!-- Offer Section -->
-
     <div class="p-6">
-
-    <!-- Header & Switcher -->
-    <div class="flex flex-col sm:flex-row items-center sm:justify-between space-y-5 sm:space-y-0 mb-4">
+    <div class="flex flex-col sm:flex-row sm:justify-start space-y-5 sm:space-y-0 mb-4">
       <h1 class="text-xl sm:text-2xl font-bold text-left sm:text-left">Доступные велосипеды</h1>
       <Switcher v-model="isSelected" />
     </div>
 
     <!-- Bicycles Grid -->
-    <div class="flex sm:flex-row flex-col  justify-center sm:justify-start md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full" v-if="filteredBicycles.length">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 sm:p-6 h-full" v-if="filteredBicycles.length">
       <CardBg 
         v-for="bicycle in filteredBicycles"
         :key="bicycle.id" 
-        class="border p-2 sm:p-4 mb-2 rounded-lg w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+        class="p-2 sm:p-4 mb-2 rounded-lg w-full"
         :image-url="`data:image/jpeg;base64,${bicycle.imageBase64}`" 
         :battery-capacity="bicycle.batteryCapacity"
         :model="bicycle.model"
@@ -57,7 +37,6 @@
         :on-sell="bicycle.onSell"
       />
     </div>
-
     <p class="text-center text-gray-500 mt-4" v-else>No bicycles found.</p>
   </div>
 </template>

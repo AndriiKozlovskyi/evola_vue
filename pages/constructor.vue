@@ -9,9 +9,9 @@ const motorBrands = ref([
 ]);
 
 const motorType = ref([
-  { name: "кареточный", price: 300 },
-  { name: "заднее колеса", price: 400 },
-  { name: "переднее колесо", price: 350 },
+  { name: "Кареточный", price: 300 },
+  { name: "Заднее колеса", price: 400 },
+  { name: "Переднее колесо", price: 350 },
 ]);
 
 const motorPowers = ref([
@@ -26,6 +26,10 @@ const batteryCapacities = ref([
   { name: "13Ah", price: 160 },
   { name: "15Ah", price: 200 },
   { name: "20Ah", price: 250 },
+  { name: "22Ah", price: 250 },
+  { name: "25Ah", price: 250 },
+  { name: "30Ah", price: 250 },
+
 ]);
 
 const wheelSizes = ref([
