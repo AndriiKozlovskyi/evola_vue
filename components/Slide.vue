@@ -9,9 +9,10 @@
             <p class="text-white text-xl text-center font-semibold">
                 {{ desc }}
             </p>
-            <div class="flex flex-row w-full sm:pl-24 sm:pr-24 items-center justify-center mb-10">
+            <div v-if="buttonPresent" class="flex flex-row w-full sm:pl-24 sm:pr-24 items-center justify-center mb-10">
                 <NuxtLink :to="link"><MyButton @onClick="" :label="buttonLabel"></MyButton></NuxtLink>
             </div>
+            <div v-if="!buttonPresent"></div>
         </div>
     </div>
 </template>
@@ -20,6 +21,11 @@ const props = defineProps({
     image: {
         type: String,
         required: true
+    },
+    buttonPresent: {
+        default: true,
+        type: Boolean,
+        required: false
     },
     label: String,
     desc: String,

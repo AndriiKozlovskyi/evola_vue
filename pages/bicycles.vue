@@ -1,21 +1,49 @@
 <template>
-  <div class="p-4 sm:p-6">
+  <div class="relative w-full overflow-x-hidden">
+    <!-- <div class="w-screen sm:h-[20rem] h-[20rem] flex flex-col bg-cover bg-center rounded-xl opacity-90"
+    :style="{ backgroundImage: `url(${image})` }">
+    <div class="opacity-90 bg-black inset-0 flex flex-col items-center justify-center z-30 bg-cover w-full h-full">
+      <div class="text-white flex flex-col items-center self-center w-1/3 justify-center bg-blue-100 text-gr-800 bg-gradient-to-r from-green-500 to-indigo-400 p-4 sm:p-6 rounded-lg mb-4">
+      <h2 class="text-lg sm:text-3xl font-semibold">Наше предложение</h2>
+      <ul class="list-disc pl-5 text-sm mt-5 sm:text-base">
+        <li>Первый день аренды бесплатно</li>
+        <li>Бесплатное сервисное обслуживание</li>
+        <li>Лояльное отношение к клиентам</li>
+        <li>Первый день аренды бесплатно</li>
+        <li>Бесплатное сервисное обслуживание</li>
+        <li>Лояльное отношение к клиентам</li>
+      </ul>
+  </div>
+</div> -->
+
+<div
+      class="flex transition-transform duration-500 ease-in-out"
+      :style="{ transform: `translateX(-${currentIndex * 100/slides.length}%)`, width: `${slides.length * 100}%` }"
+    >
+      <Slide 
+        v-for="(slide, index) in slides" 
+        :key="index" 
+        :image="slide.image" 
+        :desc="slide.desc" 
+        :label="slide.label"
+        :button-present="false"
+        :link="slide.link"
+        class="w-full"
+      />
+    </div>
+    </div>
+    <!-- Offer Section -->
+
+    <div class="p-6">
+
     <!-- Header & Switcher -->
     <div class="flex flex-col sm:flex-row items-center sm:justify-between space-y-2 sm:space-y-0 mb-4">
       <h1 class="text-xl sm:text-2xl font-bold text-center sm:text-left">Доступные велосипеды</h1>
       <Switcher v-model="isSelected" />
     </div>
 
-    <!-- Information -->
-    <!-- <div class="text-sm sm:text-base">
-      <p>- Первый день аренды бесплатно</p>
-      <p>- Сервис бесплатный (если вы не пробиваете колесо каждый день, не чаще раза в неделю)</p>
-      <p>- Оплата может откладываться, но отношение к вам будет ухудшаться</p>
-      <p>- Пример умовы</p>
-    </div> -->
-
     <!-- Bicycles Grid -->
-    <div class="flex flex-wrap justify-center sm:justify-start md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full mb-20" v-if="filteredBicycles.length">
+    <div class="flex sm:flex-row flex-col  justify-center sm:justify-start md:space-x-4 border rounded-lg shadow-inner p-4 sm:p-6 md:p-10 h-full mb-20" v-if="filteredBicycles.length">
       <CardBg 
         v-for="bicycle in filteredBicycles"
         :key="bicycle.id" 
@@ -38,6 +66,9 @@
 import { ref, onMounted, computed } from 'vue';
 import BicycleService from '@/composables/bicycleService';
 import Bicycle from "@/composables/Bicycle";
+import fix from "@/assets/fix1.png";
+import bicycle from "@/assets/bicycle1.png";
+import image from "@/assets/fix1.png";
 
 const bicycles = ref<Bicycle[]>([]);
 const isSelected = ref(false); // Default: Rent (false)
@@ -54,4 +85,68 @@ onMounted(async () => {
 const filteredBicycles = computed(() => {
   return bicycles.value.filter(bicycle => bicycle.onSell === isSelected.value);
 });
+
+
+const slides = ref([
+  { image: bicycle, label: "Условия аренды", desc: "Первый день беслатно.", buttonLabel: "Арендовать", link: "/bicycles" },
+  { image: fix, label: "Условия аренды", desc: "Бесплатный сервис.", buttonLabel: "Сервис", link: "/bicycles" },
+  { image: bicycle, label: "Условия аренды", desc: "Лояльное отношение к клиентам.", buttonLabel: "Конверсия", link: "/constructor" },
+]);
+
+let touchStartX = 0;
+let touchEndX = 0;
+const currentIndex = ref(0);
+let interval: ReturnType<typeof setInterval> | null = null;
+
+const nextSlide = () => {
+  currentIndex.value = (currentIndex.value + 1) % slides.value.length;
+};
+
+const prevSlide = () => {
+  currentIndex.value = (currentIndex.value - 1 + slides.value.length) % slides.value.length;
+};
+
+const handleTouchStart = (event: TouchEvent) => {
+  touchStartX = event.touches[0].clientX;
+};
+
+const handleTouchMove = (event: TouchEvent) => {
+  touchEndX = event.touches[0].clientX;
+};
+
+const handleTouchEnd = () => {
+  if (touchStartX - touchEndX > 50) nextSlide();
+  if (touchEndX - touchStartX > 50) prevSlide();
+};
+
+onMounted(() => {
+  window.addEventListener("touchstart", handleTouchStart);
+  window.addEventListener("touchmove", handleTouchMove);
+  window.addEventListener("touchend", handleTouchEnd);
+  
+  interval = setInterval(nextSlide, 5000);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("touchstart", handleTouchStart);
+  window.removeEventListener("touchmove", handleTouchMove);
+  window.removeEventListener("touchend", handleTouchEnd);
+  
+  if (interval) clearInterval(interval);
+});
 </script>
+
+
+<style scoped>
+.flex {
+  display: flex;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+</style>

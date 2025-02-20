@@ -84,19 +84,19 @@ const isSidebarOpen = ref(false);
 const isVisible = ref(true);
 let lastScrollY = 0;
 
-const handleScroll = () => {
-  const currentScrollY = window.scrollY;
-  isVisible.value = currentScrollY < lastScrollY || currentScrollY < 50; // Show on scroll up or top
-  lastScrollY = currentScrollY;
-};
+// const handleScroll = () => {
+//   const currentScrollY = window.scrollY;
+//   isVisible.value = currentScrollY < lastScrollY || currentScrollY < 50; // Show on scroll up or top
+//   lastScrollY = currentScrollY;
+// };
 
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
+// onMounted(() => {
+//   window.addEventListener("scroll", handleScroll);
+// });
 
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
+// onUnmounted(() => {
+//   window.removeEventListener("scroll", handleScroll);
+// });
 </script>
 
 <style scoped>

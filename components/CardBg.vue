@@ -18,15 +18,15 @@
             </div>
             <hr/>
             <div class="flex flex-row space-x-3 items-center">
-                <img src="../assets/battery-icon.png" class="w-[3rem] h-[3rem]"/>
+                <img src="../assets/battery.png" class="w-[3rem] h-[3rem]"/>
                 <p><strong>{{ batteryCapacity }}A</strong></p>
             </div>
             <div class="flex flex-row space-x-3 items-center">
-                <img src="../assets/motor.png" class="w-[3rem] h-[3rem]"/>
+                <img src="../assets/motor2.png" class="w-[3rem] h-[3rem]"/>
                 <p><strong>{{ motor }}</strong></p>
             </div>
             <div class="flex flex-row space-x-3 items-center">
-                <img src="../assets/wheel.png" class="w-[3rem] h-[3rem]"/>
+                <img src="../assets/wheel1.png" class="w-[3rem] h-[3rem]"/>
                 <p><strong>{{ wheelSize }}"</strong></p>
             </div>
         </div>
