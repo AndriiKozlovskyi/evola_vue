@@ -21,7 +21,8 @@
                 <nav class="hidden sm:flex relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 justify-center items-center space-x-4 sm:py-4 text-sm sm:text-lg text-gray-600">
                     <NuxtLink to="/bicycles" class="hover:text-black">Велосипеды</NuxtLink>
                     <NuxtLink to="/batteries" class="hover:text-black">Батареи</NuxtLink>
-                    <a class="hover:text-black">Блог</a>
+                    <NuxtLink to="/blog" class="hover:text-black">Блог</NuxtLink>
+
                 </nav>
                 <!-- Contact Info -->
                  <a href="https://t.me/evola_manager">

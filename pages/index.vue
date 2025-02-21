@@ -6,8 +6,12 @@
         </div> -->
         <div class="flex flex-col items-center justify-center w-full h-full">
             <Ad/>
+            <StoryblokComponent v-if="story" :blok="story.content" />
         </div>
+        
     </div>
 </template>
 <script setup lang="ts">
+const story = await useStoryblok('home', { version: 'draft' });
+
 </script>
