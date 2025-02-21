@@ -11,7 +11,10 @@
           {{ blok.description }}
         </h2>
         <div class="text-gray-600 mb-3">Written by: <b>{{ blok.author }}</b></div>
-        <div v-html="resolvedRichText"></div>
+        <div 
+          v-html="blok.content"
+          class="prose mt-8"
+        ></div>
       </div>
     </div>
   </template>
@@ -19,5 +22,5 @@
   <script setup>
   const props = defineProps({ blok: Object })
    
-  const resolvedRichText = computed(() => renderRichText(props.blok.content))
+  
   </script>
