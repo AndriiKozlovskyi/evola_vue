@@ -30,7 +30,7 @@
                 <p><strong>{{ wheelSize }}"</strong></p>
             </div>
         </div>
-        <div v-show="hovered" class="cursor-pointer z-10 flex flex-col text-white items-start bottom-0 justify-center">
+        <div v-show="hovered" class="cursor-pointer z-10 flex flex-col text-white items-end bottom-0 justify-center">
             <div class="flex flex-col items-center justify-center hover:scale-110 duration-300" @click="handleClick()">
                 <img src="../assets/telegram.png" class="w-[4rem] h-[4rem]"/>
                 <p class="font-bold">@evola_manager</p>

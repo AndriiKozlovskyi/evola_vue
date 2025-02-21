@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/bicycles'; // Your Spring Boot API
+const API_URL = 'https://evola-ryj6.onrender.com/api/bicycles'; // Your Spring Boot API
 
 export default class BicycleService {
   

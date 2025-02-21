@@ -115,7 +115,7 @@ const mockBicycles: Bicycle[] = [
 
 // Computed property to filter bicycles
 const filteredBicycles = computed(() => {
-  return mockBicycles.filter(bicycle => bicycle.onSell === isSelected.value);
+  return bicycles.value.filter(bicycle => bicycle.onSell === isSelected.value);
 });
 
 
