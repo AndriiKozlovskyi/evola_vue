@@ -12,7 +12,7 @@
       <h2 class="text-xl md:text-2xl text-gray-500 font-bold mb-4">
         {{ blok.description }}
       </h2>
-      <div class="text-gray-600 mb-3">Written by: <b>{{ blok.author }}</b></div>
+      <div class="text-gray-600 mb-3">Автор: <b>{{ blok.author }}</b></div>
       <div v-html="blok.content" class="prose prose-sm md:prose-lg mt-8"></div>
     </div>
   </div>
