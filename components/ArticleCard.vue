@@ -5,7 +5,7 @@
       class="w-full h-full border rounded-[5px] text-left overflow-hidden"
     >
       <img
-        :src="article.image.filename + '/m/600x0'"
+        :src="article.image"
         :alt="article.image.alt"
         class="w-full h-48 xl:h-72 object-cover pointer-events-none"
       />
