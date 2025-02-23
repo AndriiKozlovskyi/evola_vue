@@ -14,7 +14,7 @@
         <div class="text-gray-200 p-4 text-xl z-10 space-y-3" v-if="!hovered">
             <div class="flex flex-row justify-between items-start">
                 <p class="text-xl mb-10"><strong>{{ batteryCapacity }}A</strong></p>
-                <p class="text-xl"><strong>{{ price }} зл/неделю</strong></p>
+                <p class="text-xl"><strong>{{ price }}<p v-if="!onSell"> зл/неделю</p><p v-else> зл</p></strong></p>
             </div>
             <hr/>
             <div>
@@ -37,6 +37,7 @@ import { ref } from 'vue';
 const props = defineProps({
     batteryCapacity: Number,
     price: Number,
+    onSell: Boolean,
     box: String,
 })
 

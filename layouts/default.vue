@@ -19,14 +19,14 @@
             </div>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden sm:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 space-x-4 w-1/3 text-sm sm:text-lg text-gray-300">
+            <nav class="hidden sm:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 space-x-4 text-sm sm:text-lg text-gray-300">
                 <NuxtLink to="/bicycles" class="hover:text-white">Велосипеды</NuxtLink>
                 <NuxtLink to="/batteries" class="hover:text-white">Батареи</NuxtLink>
                 <NuxtLink to="/blog" class="hover:text-white">Блог</NuxtLink>
             </nav>
 
             <!-- Contact Info -->
-            <a href="https://t.me/evola_manager" class="flex items-center space-x-2 text-white hover:scale-105 transition w-1/3">
+            <a href="https://t.me/evola_manager" class="flex items-center space-x-2 text-white hover:scale-105 transition">
                 <img src="../assets/telegram.png" class="w-5 h-5 sm:w-6 sm:h-6" />
                 <p class="text-xs sm:text-base">@evola_manager</p>
             </a>

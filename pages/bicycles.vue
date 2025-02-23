@@ -27,7 +27,7 @@
 
 
       <div v-else-if="filteredBicycles.length" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:p-6 h-full">
-        <CardBg 
+        <BicycleCard 
           v-for="bicycle in filteredBicycles"
           :key="bicycle.id" 
           class="sm:p-4 mb-2 rounded-lg w-full"
@@ -51,6 +51,7 @@ import BicycleService from '@/composables/bicycleService';
 import Bicycle from "@/composables/Bicycle";
 import fix from "@/assets/fix1.png";
 import bicycle from "@/assets/bicycle1.png";
+import BicycleCard from '~/components/BicycleCard.vue';
 
 const bicycles = ref<Bicycle[]>([]);
 const isSelected = ref(false); // Default: Rent (false)
