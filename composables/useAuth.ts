@@ -29,7 +29,6 @@ export function useAuth() {
       if (response.status === 200) {
         isAuthenticated.value = true;
         username.value = user;
-        router.push('/add');  // Redirect to home or the intended route
       } else {
         errorMessage.value = 'Invalid credentials';
       }

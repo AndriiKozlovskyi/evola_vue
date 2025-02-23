@@ -65,11 +65,6 @@
         </form>
   
         <Spinner v-if="loading"/>
-        <!-- Register Link (optional) -->
-        <p class="text-center text-sm text-gray-600 mt-4">
-          Don't have an account?
-          <a href="/register" class="text-blue-500 hover:underline">Register</a>
-        </p>
       </div>
     </div>
   </template>

@@ -48,7 +48,6 @@ onMounted(fetchConstrOptions);
     </div>
     <Spinner v-if="loading"/>
 
-    <!-- Total Price Display -->
     <div class="flex justify-center text-lg sm:text-xl font-bold rounded-lg px-4 py-2 mt-4">
       <p>Общая стоимость: {{ totalPrice }}pln</p>
     </div>
