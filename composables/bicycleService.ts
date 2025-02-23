@@ -3,8 +3,8 @@ import axios from 'axios';
 const API_URL = 'https://evola-ryj6.onrender.com/api/bicycles'; // Your Spring Boot API
 const AUTH_HEADER = {
   auth: {
-    username: 'admin', // Replace with actual username
-    password: 'admin', // Replace with actual password
+    username: 'TowZaRKa', // Replace with actual username
+    password: 'EvoZaLa20Nin05$12345', // Replace with actual password
   },
   headers: {
     'Content-Type': 'multipart/form-data',
