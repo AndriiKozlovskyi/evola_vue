@@ -22,6 +22,7 @@
             <nav class="hidden sm:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 space-x-4 text-sm sm:text-lg text-gray-300">
                 <NuxtLink to="/bicycles" class="hover:text-white">Велосипеды</NuxtLink>
                 <NuxtLink to="/batteries" class="hover:text-white">Батареи</NuxtLink>
+                <NuxtLink to="/constructor" class="hover:text-white">Конверсия</NuxtLink>
                 <NuxtLink to="/blog" class="hover:text-white">Блог</NuxtLink>
             </nav>
 
@@ -46,6 +47,7 @@
             <nav class="flex flex-col p-4 space-y-4 text-lg text-white">
                 <NuxtLink to="/bicycles" class="hover:text-white" @click="isSidebarOpen = false">Велосипеды</NuxtLink>
                 <NuxtLink to="/batteries" class="hover:text-white" @click="isSidebarOpen = false">Батареи</NuxtLink>
+                <NuxtLink to="/constructor" class="hover:text-white" @click="isSidebarOpen = false">Конверсия</NuxtLink>
                 <NuxtLink to="/blog" class="hover:text-white" @click="isSidebarOpen = false">Блог</NuxtLink>
             </nav>
         </aside>

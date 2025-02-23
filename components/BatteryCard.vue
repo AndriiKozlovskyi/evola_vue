@@ -41,7 +41,7 @@ const props = defineProps({
     box: String,
 })
 
-import pollydp9 from '../assets/pollydp9.jpg';
+import pollydp9 from '../assets/pollypd9.png';
 
 const hovered = ref(false);
 
