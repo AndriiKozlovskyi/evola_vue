@@ -8,7 +8,7 @@
           <line x1="85" y1="15" x2="15" y2="85" stroke="currentColor" stroke-width="2"/>
           <circle cx="50" cy="50" r="5" fill="currentColor" />
         </svg>
-        <p>Загрузка...</p>
+        <p class="text-black">Загрузка...</p>
       </div>
 </template>
 
