@@ -5,6 +5,7 @@ import ConstrOptionService from "~/composables/optionsService";
 
 // Store configuration options fetched from API
 const constrOptions = ref([]);
+const loading = ref(true);
 
 // Store selected options dynamically
 const selectedOptions = ref({});
@@ -15,6 +16,8 @@ const fetchConstrOptions = async () => {
     constrOptions.value = await ConstrOptionService.getAllConstrOptions();
   } catch (error) {
     console.error("Ошибка загрузки конфигураций:", error);
+  } finally {
+    loading.value = false;
   }
 };
 
@@ -43,6 +46,7 @@ onMounted(fetchConstrOptions);
         v-model="selectedOptions[constrOption.id]"
       />
     </div>
+    <Spinner v-if="loading"/>
 
     <!-- Total Price Display -->
     <div class="flex justify-center text-lg sm:text-xl font-bold rounded-lg px-4 py-2 mt-4">
