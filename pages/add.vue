@@ -1,7 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import BicycleService from '@/composables/bicycleService';
+import Bicycle from "@/composables/Bicycle";
 
+const bicycles = ref<Bicycle[]>([]);
+const isSelected = ref(false); // Default: Rent (false)
+
+onMounted(async () => {
+  try {
+    bicycles.value = await BicycleService.getAllBicycles();
+  } catch (error) {
+    console.error("Failed to load bicycles", error);
+  }
+});
 const newBicycle = ref({
   model: '',
   batteryCapacity: null,
@@ -43,11 +54,16 @@ const handleFileChange = (event: Event) => {
     newBicycle.value.image = file;
   }
 };
+
+const deleteBicycle = async (id: number) => {
+  await BicycleService.deleteBicycle(id);
+  bicycles.value = await BicycleService.getAllBicycles();
+}
 </script>
 
 <template>
   <div class="p-6">
-    <NuxtLink to="/"><MyButton label="back"/></NuxtLink>
+    <NuxtLink to="/admin"><MyButton label="back"/></NuxtLink>
     <h1 class="text-2xl font-bold mb-4">Add a Bicycle</h1>
     <form @submit.prevent="addBicycle" class="space-y-4">
       <input v-model="newBicycle.model" placeholder="Model" class="border p-2 w-full rounded-xl" />
@@ -60,5 +76,22 @@ const handleFileChange = (event: Event) => {
       <input type="file" @change="handleFileChange" accept="image/*" class="border p-2 w-full rounded-xl" />
       <MyButton type="submit" class="text-white px-4 py-2"  label="Add Vehicle"/>
     </form>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:p-6 h-full" v-if="bicycles.length">
+      <div class="sm:p-4 mb-2 rounded-lg w-full"    v-for="bicycle in bicycles"
+      :key="bicycle.id" >
+      <MyButton @on-click="deleteBicycle(bicycle.id)" label="удалить велосипед"/>
+      <CardBg 
+        class="sm:p-4 mb-2 rounded-lg w-full"
+        :image-url="`data:image/jpeg;base64,${bicycle.imageBase64}`" 
+        :battery-capacity="bicycle.batteryCapacity"
+        :model="bicycle.model"
+        :motor="bicycle.motor"
+        :wheel-size="bicycle.wheelSize"
+        :price="bicycle.price"
+        :on-sell="bicycle.onSell"
+      /></div>
+
+
+    </div>
   </div>
 </template>
