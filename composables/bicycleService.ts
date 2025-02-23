@@ -33,15 +33,11 @@ export default class BicycleService {
     }
   }
 
-  static async createBicycle(bicycle: any, image: File | null) {
+  static async createBicycle(bicycle: any) {
     try {
-      const formData = new FormData();
-      formData.append('bicycle', new Blob([JSON.stringify(bicycle)], { type: 'application/json' }));
-      if (image) {
-        formData.append('image', image);
-      }
 
-      const response = await axios.post(`${API_URL}/admin`, formData, AUTH_HEADER);
+
+      const response = await axios.post(`${API_URL}/admin`, bicycle, AUTH_HEADER);
       return response.data;
     } catch (error) {
       console.error('Error creating bicycle:', error);
@@ -49,15 +45,10 @@ export default class BicycleService {
     }
   }
 
-  static async updateBicycle(id: number, bicycle: any, image: File | null) {
+  static async updateBicycle(id: number, bicycle: any) {
     try {
-      const formData = new FormData();
-      formData.append('bicycle', new Blob([JSON.stringify(bicycle)], { type: 'application/json' }));
-      if (image) {
-        formData.append('image', image);
-      }
 
-      const response = await axios.put(`${API_URL}/admin/${id}`, formData, AUTH_HEADER);
+      const response = await axios.put(`${API_URL}/admin/${id}`, bicycle, AUTH_HEADER);
       return response.data;
     } catch (error) {
       console.error(`Error updating bicycle ${id}:`, error);

@@ -11,7 +11,7 @@
           @click="selectOption(option)" 
           class="px-4 py-2 hover:bg-gray-200 cursor-pointer"
         >
-          {{ option.name }}
+          {{ option.value }}
         </li>
       </ul>
     </div>
@@ -35,7 +35,7 @@
   };
   
   const selectOption = (option) => {
-    selectedOption.value = option.name;
+    selectedOption.value = option.value;
     emit("update:modelValue", option);
     isOpen.value = false;
   };

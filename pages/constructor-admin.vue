@@ -10,6 +10,8 @@
       <div v-for="constrOption in constrOptions" :key="constrOption.id" class="flex flex-col text-black space-y-3 px-3 py-2 border">
         <p>{{ constrOption.name }}</p>
         <MyButton @on-click="showCreationForm(constrOption)" label="Добавить опцию"/>
+        <MyButton @on-click="deleteConstr(constrOption.id)" label="Удалить опцию"/>
+
         <div v-for="option in constrOption.options" :key="option.id" class="flex flex-col text-black bg-gray-200 px-3 py-2 border">
           <p>{{ option.value }}</p>
           <p>{{ option.price }}</p>
@@ -52,6 +54,11 @@ const fetchConstrOptions = async () => {
     }
   };
   
+const deleteConstr = async (id: number) => {
+  await ConstrOptionService.deleteConstrOption(id);
+  fetchConstrOptions(); // Refresh list
+
+}
   
   const createConstrOption = async () => {
     console.log(name.value)
