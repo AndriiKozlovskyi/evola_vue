@@ -64,6 +64,7 @@
           </div>
         </form>
   
+        <Spinner v-if="loading"/>
         <!-- Register Link (optional) -->
         <p class="text-center text-sm text-gray-600 mt-4">
           Don't have an account?
@@ -81,6 +82,7 @@
   // Get authentication logic from composable
   const { login, errorMessage, isAuthenticated } = useAuth();
   const router = useRouter();
+  const loading = ref(false);
   
   // Define reactive variables
   const username = ref<string>('');
@@ -99,7 +101,14 @@
   
   // Login function
   const handleLogin = async () => {
-    await login(username.value, password.value);
+    try {
+        loading.value = true;
+        await login(username.value, password.value);
+    } catch (error) {
+    console.error("Failed to load bicycles", error);
+  } finally {
+    loading.value = false; // Hide spinner when done
+  }
     if (isAuthenticated.value) {
       showLoginForm.value = false; // Hide login form on success
       router.push(chosenPath.value); // Redirect to '/add' after successful login

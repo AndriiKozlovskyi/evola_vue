@@ -16,108 +16,60 @@
         />
       </div>
     </div>
+    
     <div class="p-6">
-    <div class="flex flex-col sm:flex-row sm:justify-between space-y-5 sm:space-y-0 mb-4">
-      <h1 class="text-xl sm:text-2xl font-bold text-left sm:text-left">Доступные велосипеды</h1>
-      <Switcher v-model="isSelected" />
-    </div>
+      <div class="flex flex-col sm:flex-row sm:justify-between space-y-5 sm:space-y-0 mb-4">
+        <h1 class="text-xl sm:text-2xl font-bold text-left sm:text-left">Доступные велосипеды</h1>
+        <Switcher v-model="isSelected" />
+      </div>
 
-    <!-- Bicycles Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:p-6 h-full" v-if="filteredBicycles.length">
-      <CardBg 
-        v-for="bicycle in filteredBicycles"
-        :key="bicycle.id" 
-        class="sm:p-4 mb-2 rounded-lg w-full"
-        :image-url="`data:image/jpeg;base64,${bicycle.imageBase64}`" 
-        :battery-capacity="bicycle.batteryCapacity"
-        :model="bicycle.model"
-        :motor="bicycle.motor"
-        :wheel-size="bicycle.wheelSize"
-        :price="bicycle.price"
-        :on-sell="bicycle.onSell"
-      />
+      <Spinner v-if="loading"/>
+
+
+      <div v-else-if="filteredBicycles.length" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:p-6 h-full">
+        <CardBg 
+          v-for="bicycle in filteredBicycles"
+          :key="bicycle.id" 
+          class="sm:p-4 mb-2 rounded-lg w-full"
+          :image-url="`data:image/jpeg;base64,${bicycle.imageBase64}`" 
+          :battery-capacity="bicycle.batteryCapacity"
+          :model="bicycle.model"
+          :motor="bicycle.motor"
+          :wheel-size="bicycle.wheelSize"
+          :price="bicycle.price"
+          :on-sell="bicycle.onSell"
+        />
+      </div>
+
+      <p v-else class="text-center text-gray-500 mt-4">No bicycles found.</p>
     </div>
-    <p class="text-center text-gray-500 mt-4" v-else>No bicycles found.</p>
-  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, onUnmounted } from 'vue';
 import BicycleService from '@/composables/bicycleService';
 import Bicycle from "@/composables/Bicycle";
 import fix from "@/assets/fix1.png";
 import bicycle from "@/assets/bicycle1.png";
-import image from "@/assets/fix1.png";
 
 const bicycles = ref<Bicycle[]>([]);
 const isSelected = ref(false); // Default: Rent (false)
+const loading = ref(true); // Loading state
 
 onMounted(async () => {
   try {
     bicycles.value = await BicycleService.getAllBicycles();
   } catch (error) {
     console.error("Failed to load bicycles", error);
+  } finally {
+    loading.value = false; // Hide spinner when done
   }
 });
-
-const mockBicycles: Bicycle[] = [
-  new Bicycle({
-    id: 1,
-    model: "E-MTB Pro",
-    batteryCapacity: 15,
-    price: 1200,
-    onSell: true,
-    motor: "Bafang",
-    wheelSize: 27.5,
-    imageBase64: "", // Add a base64-encoded image if needed
-  }),
-  new Bicycle({
-    id: 2,
-    model: "City Cruiser",
-    batteryCapacity: 10,
-    price: 900,
-    onSell: false,
-    motor: "Bosch",
-    wheelSize: 26,
-    imageBase64: "",
-  }),
-  new Bicycle({
-    id: 3,
-    model: "Adventure Pro",
-    batteryCapacity: 20,
-    price: 1500,
-    onSell: true,
-    motor: "Shimano",
-    wheelSize: 29,
-    imageBase64: "",
-  }),
-  new Bicycle({
-    id: 4,
-    model: "Folding E-Bike",
-    batteryCapacity: 13,
-    price: 1100,
-    onSell: false,
-    motor: "Bafang",
-    wheelSize: 26,
-    imageBase64: "",
-  }),
-  new Bicycle({
-    id: 5,
-    model: "Fat Tire Explorer",
-    batteryCapacity: 18,
-    price: 1700,
-    onSell: true,
-    motor: "Bosch",
-    wheelSize: 26,
-    imageBase64: "",
-  }),
-];
 
 // Computed property to filter bicycles
 const filteredBicycles = computed(() => {
   return bicycles.value.filter(bicycle => bicycle.onSell === isSelected.value);
 });
-
 
 const slides = ref([
   { image: bicycle, label: "Условия аренды", desc: "Первый день беслатно.", buttonLabel: "Арендовать", link: "/bicycles" },
@@ -167,7 +119,6 @@ onUnmounted(() => {
   if (interval) clearInterval(interval);
 });
 </script>
-
 
 <style scoped>
 .flex {
