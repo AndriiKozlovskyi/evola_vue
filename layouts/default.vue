@@ -50,7 +50,7 @@
         <!-- Footer -->
         <footer class="w-full flex justify-between items-center bg-[#000001] shadow-md p-2 sm:p-4">
             <NuxtLink to="/" class="font-bold text-xl sm:text-2xl dark:text-white flex px-2 py-1 border hover:bg-gray-300 border-white rounded-lg">
-                <span class="dark:text-white"><span class="text-red-600">E</span>VOLA</span>
+                <span class="text-white"><span class="text-red-600">E</span>VOLA</span>
             </NuxtLink>
             <a href="https://maps.app.goo.gl/EBk2MTtXK6mwjzLC8" class="flex items-center space-x-2 text-white hover:scale-105 transition">
                 <img src="../assets/location.png" class="w-5 h-5 sm:w-6 sm:h-6" />
