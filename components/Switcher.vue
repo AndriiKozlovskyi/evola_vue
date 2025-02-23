@@ -1,7 +1,7 @@
 <template>
     <div class="relative flex border-2 flex-row items-center rounded-full cursor-pointer w-[20rem]">
       <div 
-        class="absolute w-1/2 h-7 z-20 top-0 transition-transform rounded-full bg-gradient-to-r from-green-500 to-indigo-400"
+        class="absolute w-1/2 h-7 z-20 top-0 transition-transform rounded-full bg-gradient-to-r from-[#5b5bc5] to-indigo-400"
         :style="{ transform: modelValue ? 'translateX(100%)' : 'translateX(0)' }"
       ></div>
   

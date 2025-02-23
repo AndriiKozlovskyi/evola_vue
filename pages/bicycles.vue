@@ -17,7 +17,7 @@
       </div>
     </div>
     
-    <div class="p-6">
+    <div class="p-6 bg-[#fffefe]">
       <div class="flex flex-col sm:flex-row sm:justify-between space-y-5 sm:space-y-0 mb-4">
         <h1 class="text-xl sm:text-2xl font-bold text-left sm:text-left">Доступные велосипеды</h1>
         <Switcher v-model="isSelected" />
