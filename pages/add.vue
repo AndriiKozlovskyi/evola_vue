@@ -16,7 +16,7 @@ const newBicycle = ref({
 const addBicycle = async () => {
   try {
     const formData = new FormData();
-    formData.append('bicycle', new Blob([JSON.stringify({
+    formData.append('bicycle', JSON.stringify({
       model: newBicycle.value.model,
       batteryCapacity: newBicycle.value.batteryCapacity,
       wheelSize: newBicycle.value.wheelSize,
@@ -24,7 +24,7 @@ const addBicycle = async () => {
       motor: newBicycle.value.motor,
       onSell: newBicycle.value.onSell,
       description: newBicycle.value.description
-    })], { type: "application/json" }));
+    }));
 
     if (newBicycle.value.image) {
       formData.append('image', newBicycle.value.image);
