@@ -38,7 +38,7 @@
         <div 
           v-if="orderText" 
           @click="copyOrder" 
-          class="relative bg-gray-100 p-4 mt-4 rounded-lg border border-gray-300 w-full sm:w-[80%] cursor-pointer hover:bg-gray-200 transition"
+          class="relative text-black bg-gray-100 p-4 mt-4 rounded-lg border border-gray-300 w-full sm:w-[80%] cursor-pointer hover:bg-gray-200 transition"
         >
           <p class="whitespace-pre-line">{{ orderText }}</p>
 
