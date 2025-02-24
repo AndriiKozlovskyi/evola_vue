@@ -9,14 +9,14 @@
         @click="$emit('update:modelValue', false)">
         <p 
             class="z-30 transition-all duration-600" 
-            :class="{ 'text-white font-bold z-30': !modelValue, 'text-gray-700 font-medium': modelValue }">Арендовать</p>
+            :class="{ 'text-white font-medium z-30': !modelValue, 'text-gray-700': modelValue }">Арендовать</p>
       </div>
   
       <div class="right-0 w-1/2 flex justify-center bg-white items-center h-full text-lg rounded-r-xl cursor-pointer"
         @click="$emit('update:modelValue', true)">
         <p
          class="z-30 transition-all duration-600" 
-         :class="{ 'text-white font-bold': modelValue, 'text-gray-700 font-medium': !modelValue }">Купить</p>
+         :class="{ 'text-white font-medium': modelValue, 'text-gray-700': !modelValue }">Купить</p>
       </div>
     </div>
   </template>

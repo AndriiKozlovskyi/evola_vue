@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center bg-[#fffefe] w-full px-4 mt-6">
     <!-- Header -->
-    <h1 class="text-2xl sm:text-3xl font-bold text-center mb-6">
+    <h1 class="text-2xl sm:text-3xl font-medium text-center mb-6">
       Соберите свой велосипед
     </h1>
 

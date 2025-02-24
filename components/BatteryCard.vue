@@ -13,8 +13,12 @@
         <!-- Content inside (if needed) -->
         <div class="text-gray-200 p-4 text-xl z-10 space-y-3" v-if="!hovered">
             <div class="flex flex-row justify-between items-start">
-                <p class="text-xl mb-10"><strong>{{ batteryCapacity }}A</strong></p>
-                <p class="text-xl"><strong>{{ price }}<p v-if="!onSell"> зл/неделю</p><p v-else> зл</p></strong></p>
+                <p class="text-xl mb-10">{{ batteryCapacity }}A</p>
+                <div class="flex flex-row">
+                    <p class="text-xl">{{ price }}</p>
+                    <p v-if="!onSell"> зл/неделю</p>
+                    <p v-else>зл</p>
+                </div>
             </div>
             <hr/>
             <div>

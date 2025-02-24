@@ -2,7 +2,7 @@
     <div class="p-6">
       <!-- Header with Switcher -->
       <div class="flex flex-col sm:flex-row sm:justify-between space-y-5 sm:space-y-0 mb-4">
-      <h1 class="text-xl sm:text-2xl font-bold text-left sm:text-left text-black">Доступные батареи</h1>
+      <h1 class="text-sxl sm:text-3xl font-medium text-left sm:text-left text-black">Доступные батареи</h1>
       <Switcher v-model="isSelected" />
     </div>
   
