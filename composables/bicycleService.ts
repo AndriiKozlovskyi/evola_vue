@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://80.49.210.2:8080/api/bicycles'; // Your Spring Boot API
+const API_URL = 'http://home.evola-tech.cloud/api/bicycles'; // Your Spring Boot API
 const AUTH_HEADER = {
   auth: {
     username: 'TowZaRKa', // Replace with actual username
